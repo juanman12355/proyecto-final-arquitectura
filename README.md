@@ -122,7 +122,7 @@ Vehiculo 2, 10:30:28, 4.0, 6.0
 
 ## 🔗 Recursos
 
-- 📄 [Informe del proyecto (PDF)](./Informe_Parqueadero_JuanPedraza.pdf)
+- 📄 [Informe del proyecto (PDF)](./informe/Informe-simulador-Parqueadero-Juan-Pedraza.pdf)
 - 🎬 Video explicativo: *(agregar enlace de YouTube o Drive aquí)*
 
 ---
