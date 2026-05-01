@@ -1,0 +1,1 @@
+# Aquí irán: tiempo promedio de espera, utilización del parqueadero, logs CSV, se utilizará mas adelante.
