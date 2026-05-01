@@ -94,7 +94,7 @@ class ParqueaderoApp:
                 self.label_estado.config(
                     text=f"Espacios disponibles: {disponibles}"
                 )
-                self.log(f"🚗 {nombre} salió. Ocupados: {ocupados}/{CAPACIDAD}")
+                self.log(f"{nombre} salió. Ocupados: {ocupados}/{CAPACIDAD}")
 
         # Vuelve a revisar la cola cada 200ms
         self.root.after(200, self.leer_eventos)
