@@ -1,7 +1,8 @@
 import tkinter as tk
-from tkinter import ttk
+from tkinter import ttk, messagebox
 import threading
 from parqueadero import CAPACIDAD, eventos, vehiculo
+import metricas
 
 class ParqueaderoApp:
     def __init__(self, root):
@@ -109,6 +110,13 @@ class ParqueaderoApp:
             width=14, height=2, cursor="hand2"
         ).grid(row=0, column=2, padx=8)
 
+        tk.Button(
+            frame_botones, text="Ver metricas",
+            command=self.ver_metricas,
+            bg="#8e44ad", fg="white", font=("Arial", 10, "bold"),
+            width=14, height=2, cursor="hand2"
+        ).grid(row=0, column=3, padx=8)
+
         # Iniciar ciclo de lectura de eventos
         self.ocupados = 0
         self.en_espera = 0
@@ -173,3 +181,17 @@ class ParqueaderoApp:
                 self.actualizar_tabla(nombre, "salio")
 
         self.root.after(200, self.leer_eventos)
+
+    def ver_metricas(self):
+        resumen = metricas.obtener_resumen()
+        if not resumen:
+            tk.messagebox.showinfo("Metricas", "Aun no hay vehiculos completados.")
+            return
+
+        msg = (
+            f"Vehiculos completados: {resumen['total']}\n"
+            f"Tiempo promedio de espera: {resumen['prom_espera']} s\n"
+            f"Tiempo promedio estacionado: {resumen['prom_estancia']} s\n\n"
+            f"Log guardado en: logs/eventos.csv"
+        )
+        tk.messagebox.showinfo("Metricas del parqueadero", msg)
